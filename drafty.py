@@ -90,14 +90,14 @@ btnDiv = Button(f2,padx=16,pady=16,bd=8,fg='black',font=('arial',20,'bold'),text
 # ORDER's INFO
 #==============
 PaymentRef=StringVar()
-Carpets=StringVar()
-Fabric=StringVar()
-Blinds=StringVar()
+Rice=StringVar()
+Pulse=StringVar()
+Wheat=StringVar()
 HomeDelivery=StringVar()
 
-Carpets.set(0)
-Fabric.set(0)
-Blinds.set(0)
+Rice.set(0)
+Pulse.set(0)
+Wheat.set(0)
 HomeDelivery.set(0)
 
 lblRef = Label(f1aa,font=('arial',16,'bold'),text='Sales Reference',bd=16,justify='left')
@@ -105,19 +105,19 @@ lblRef.grid(row=0,column=0)
 txtRef=Entry(f1aa,font=('arial',16,'bold'),textvariable=PaymentRef,bd=10,insertwidth=2,justify='left')
 txtRef.grid(row=0,column=1)
 
-lblCarpets = Label(f1aa,font=('arial',16,'bold'),text='Carpets',bd=16,justify='left')
+lblCarpets = Label(f1aa,font=('arial',16,'bold'),text='Rice',bd=16,justify='left')
 lblCarpets.grid(row=1,column=0)
-txtCarpets=Entry(f1aa,font=('arial',16,'bold'),textvariable=Carpets,bd=10,insertwidth=2,justify='left')
+txtCarpets=Entry(f1aa,font=('arial',16,'bold'),textvariable=Rice,bd=10,insertwidth=2,justify='left')
 txtCarpets.grid(row=1,column=1)
 
-lblFabric = Label(f1aa,font=('arial',16,'bold'),text='Fabric',bd=16,justify='left')
+lblFabric = Label(f1aa,font=('arial',16,'bold'),text='Pulse',bd=16,justify='left')
 lblFabric.grid(row=2,column=0)
-txtFabric=Entry(f1aa,font=('arial',16,'bold'),textvariable=Fabric,bd=10,insertwidth=2,justify='left')
+txtFabric=Entry(f1aa,font=('arial',16,'bold'),textvariable=Pulse,bd=10,insertwidth=2,justify='left')
 txtFabric.grid(row=2,column=1)
 
-lblBlinds = Label(f1aa,font=('arial',16,'bold'),text='Blinds',bd=16,justify='left')
+lblBlinds = Label(f1aa,font=('arial',16,'bold'),text='Wheat',bd=16,justify='left')
 lblBlinds.grid(row=3,column=0)
-txtBlinds=Entry(f1aa,font=('arial',16,'bold'),textvariable=Blinds,bd=10,insertwidth=2,justify='left')
+txtBlinds=Entry(f1aa,font=('arial',16,'bold'),textvariable=Wheat,bd=10,insertwidth=2,justify='left')
 txtBlinds.grid(row=3,column=1)
 
 lblHomeDelivery= Label(f1aa,font=('arial',16,'bold'),text='Home Delivery',bd=16,justify='left')
@@ -130,9 +130,9 @@ txtHomeDelivery.grid(row=4,column=1)
 # ORDER's COST
 #==============
 DateofOrder=StringVar()
-CostofCarpets=StringVar()
-CostofFabric=StringVar()
-CostofBlinds=StringVar()
+CostofRice=StringVar()
+CostofPulse=StringVar()
+CostofWheat=StringVar()
 CostofHomeDelivery=StringVar()
 
 DateofOrder.set(time.strftime("%d/%m/%y"))
@@ -142,20 +142,20 @@ lblDateofOrder.grid(row=0,column=0)
 txtDateofOrder=Entry(f1ab,font=('arial',16,'bold'),textvariable=DateofOrder,bd=10,insertwidth=2,justify='left')
 txtDateofOrder.grid(row=0,column=1)
 
-lblCostofCarpets = Label(f1ab,font=('arial',16,'bold'),text='Carpets Cost',bd=16,anchor='w')
+lblCostofCarpets = Label(f1ab,font=('arial',16,'bold'),text='Rice Cost',bd=16,anchor='w')
 lblCostofCarpets.grid(row=1,column=0)
-txtCostofCarpets=Entry(f1ab,font=('arial',16,'bold'),textvariable=CostofCarpets,bd=10,insertwidth=2,justify='left')
+txtCostofCarpets=Entry(f1ab,font=('arial',16,'bold'),textvariable=CostofRice,bd=10,insertwidth=2,justify='left')
 txtCostofCarpets.grid(row=1,column=1)
 
 
-lblCostofFabric = Label(f1ab,font=('arial',16,'bold'),text='Fabric Cost',bd=16,anchor='w')
+lblCostofFabric = Label(f1ab,font=('arial',16,'bold'),text='Pulse Cost',bd=16,anchor='w')
 lblCostofFabric.grid(row=2,column=0)
-txtCostofFabric=Entry(f1ab,font=('arial',16,'bold'),textvariable=CostofFabric,bd=10,insertwidth=2,justify='left')
+txtCostofFabric=Entry(f1ab,font=('arial',16,'bold'),textvariable=CostofPulse,bd=10,insertwidth=2,justify='left')
 txtCostofFabric.grid(row=2,column=1)
 
-lblCostofBlinds = Label(f1ab,font=('arial',16,'bold'),text='Blinds Cost',bd=16,anchor='w')
+lblCostofBlinds = Label(f1ab,font=('arial',16,'bold'),text='Wheat Cost',bd=16,anchor='w')
 lblCostofBlinds.grid(row=3,column=0)
-txtCostofBlinds=Entry(f1ab,font=('arial',16,'bold'),textvariable=CostofBlinds,bd=10,insertwidth=2,justify='left')
+txtCostofBlinds=Entry(f1ab,font=('arial',16,'bold'),textvariable=CostofWheat,bd=10,insertwidth=2,justify='left')
 txtCostofBlinds.grid(row=3,column=1)
 
 lblHomeDelivery= Label(f1ab,font=('arial',16,'bold'),text='Delivery Cost ',bd=16,anchor='w')
@@ -198,16 +198,16 @@ def iExit():
 
 def Reset():
  PaymentRef.set("")
- Carpets.set(0)
- Fabric.set(0)
- Blinds.set(0)
+ Rice.set(0)
+ Pulse.set(0)
+ Wheat.set(0)
  HomeDelivery.set(0)
  PaidTax.set("")
  SubTotal.set("")
  TotalCost.set("")
- CostofCarpets.set("")
- CostofFabric.set("")
- CostofBlinds.set("")
+ CostofRice.set("")
+ CostofPulse.set("")
+ CostofWheat.set("")
  CostofHomeDelivery.set("")
 
 def PayReference():
@@ -216,30 +216,31 @@ def PayReference():
  PaymentRef.set("BILL"+randomRef)
 
 def CostOfOrder():
- CarpetPrice = float(Carpets.get())
- BlindsPrice = float(Blinds.get())
- FabricPrice = float(Fabric.get())
+ RicePrice = float(Rice.get())
+ PulsePrice = float(Pulse.get())
+ WheatPrice = float(Wheat.get())
  DeliveryCost = float(HomeDelivery.get())
 
- CarpetsCost = "$ " + str("%.2f"%((CarpetPrice*15.49)))
- CostofCarpets.set(CarpetsCost)
+ RiceCost = "$ " + str("%.2f"%((RicePrice*15.49)))
+ CostofRice.set(RiceCost)
 
- BlindsCost = "$ " + str("%.2f"%((BlindsPrice*7.49)))
- CostofBlinds.set(BlindsCost)
+ PulseCost = "$ " + str("%.2f"%((PulsePrice*7.49)))
+ CostofPulse.set(PulseCost)
 
- FabricCost = "$ " + str("%.2f"%((FabricPrice*5.50)))
- CostofFabric.set(FabricCost)
+ WheatCost = "$ " + str("%.2f"%((WheatPrice*5.50)))
+ CostofWheat.set(WheatCost)
 
  Delivery = "$ " + str("%.2f"%((DeliveryCost*4.50)))
  CostofHomeDelivery.set(Delivery)
- ToC = "$ " + str("%.2f"%((CarpetPrice*15.49)+(BlindsPrice*7.49)+(FabricPrice*5.50)+(DeliveryCost*4.50)))
+
+ ToC = "$ " + str("%.2f"%((RicePrice*15.49)+(PulsePrice*7.49)+(WheatPrice*5.50)+(DeliveryCost*4.50)))
  SubTotal.set(ToC)
 
- Tax = "$ " + str("%.2f"%(((CarpetPrice*15.49)+(BlindsPrice*7.49)+(FabricPrice*5.50)+(DeliveryCost*4.50))*0.2))
+ Tax = "$ " + str("%.2f"%(((RicePrice*15.49)+(PulsePrice*7.49)+(WheatPrice*5.50)+(DeliveryCost*4.50))*0.2))
  PaidTax.set(Tax)
 
- TaxPay = (((CarpetPrice*15.49)+(BlindsPrice*7.49)+(FabricPrice*5.50)+(DeliveryCost*4.50))*0.2)
- Cost = (((CarpetPrice*15.49)+(BlindsPrice*7.49)+(FabricPrice*5.50)+(DeliveryCost*4.50)))
+ TaxPay = (((RicePrice*15.49)+(PulsePrice*7.49)+(WheatPrice*5.50)+(DeliveryCost*4.50))*0.2)
+ Cost = (((RicePrice*15.49)+(PulsePrice*7.49)+(WheatPrice*5.50)+(DeliveryCost*4.50)))
  CostofItems = "$ " + str("%.2f"%(TaxPay+Cost))
  TotalCost.set(CostofItems)
 
