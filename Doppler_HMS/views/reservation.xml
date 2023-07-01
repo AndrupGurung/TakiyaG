@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hms_reservation_form" model="ir.ui.view">
+        <field name="name">hms.reservation.form</field>
+        <field name="model">hms.reservation</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <separator/>
+                    <group>
+                        <group>
+                            <field name="guest_name"/>
+                            <field name="arrival"/>
+                            <field name="departure"/>
+                            <field name="adult"/>
+                        </group>
+                        <group>
+                            <field name="room_types_id"/>
+                            <field name="room_ids" widget="many2many_tags"/>
+                            <field name="agent"/>
+                        </group>
+                        <separator>
+
+
+                        </separator>
+                    </group>
+                    <notebook>
+                        <page string="Rooms" name="rooms">
+                            <field name="room_summary"/>
+                        </page>
+                    </notebook>
+                    <label for="attendee_ids"/>
+                    <field name="attendee_ids"/>
+                </sheet>
+                <group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hms_reservation_tree" model="ir.ui.view">
+        <field name="name">hms.reservation.tree</field>
+        <field name="model">hms.reservation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="guest_name"/>
+                <field name="arrival"/>
+                <field name="departure"/>
+                <field name="adult"/>
+                <field name="room_ids"/>
+                <field name="room_types_id"/>
+                <field name="agent"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hms_reservation_calendar" model="ir.ui.view">
+        <field name="name">hms.reservation.calendar</field>
+        <field name="model">hms.reservation</field>
+        <field name="arch" type="xml">
+            <calendar string="Reservation Details Calendar" mode="month" date_start="arrival"
+                      event_open_popup="False" form_view_id="%(Doppler_HMS.view_hms_reservation_form)d"
+                      color="guest_name" quick_add="False">
+                <field name="guest_name" filters="1"/>
+                <field name="arrival"/>
+                <field name="departure"/>
+                <field name="adult"/>
+                <field name="room_types_id" invisible="1" filters="1"/>
+                <field name="agent"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_hms_reservation_pivot" model="ir.ui.view">
+        <field name="name">hms.reservation.pivot</field>
+        <field name="model">hms.reservation</field>
+        <field name="arch" type="xml">
+                <pivot string="Reservation">
+                    <field name="guest_name"/>
+                    <field name="room_ids"/>
+                    <field name="room_types_id"/>
+                </pivot>
+        </field>
+    </record>
+
+    <!--<record id="view_hms_reservation_search" model="ir.ui.view">
+        <field name="name">hms.reservation.search</field>
+        <field name="model">hms.reservation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="guest_name"/>
+                <separator/>
+
+                <group expand="1" string="Group By">
+                    <filter string="Arrival" name="group_by_arrival" context="{'group_by' : 'arrival'}"/>
+                    <filter string="Departure" name="group_by_departure" context="{'group_by' : 'departure'}"/>
+                </group>
+
+                <searchpanel>
+                    <field name="room_types_id" string="Room Types" icon="fa-building" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>-->
+
+    <record id="view_hms_reservation_kanban" model="ir.ui.view">
+        <field name="name">hms.reservation.kanban</field>
+        <field name="model">hms.reservation</field>
+        <field name="arch" type="xml">
+
+            <kanban class="oe_background_grey o_kanban_dashboard o_emphasize_colors o_stock_kanban" create="0" group_create="false">
+                <field name="ref"/>
+                <field name="guest_name"/>
+                <field name="arrival"/>
+                <field name="departure"/>
+                <field name="color"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{kanban_color(record.color.raw_value)} oe_kanban_global_click o_has_icon oe_kanban_content oe_kanban_card o_kanban_card">
+                            <div class="o_kanban_card_header_title">
+                                <div class="o_primary" t-if="!selection_mode">
+                                    Today Arrival
+                                    <!--<field string="Arrival" name="arrival"/>-->
+                                </div>
+                                <div class="o_kanban_manage_button_section" t-if="!selection_mode">
+                                    <a class="o_kanban_manage_toggle_button" href="#"><i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/></a>
+                                </div>
+                                <div class="o_primary" t-if="selection_mode">
+                                        <field name="name"/>
+                                </div>
+                                <div class="o_secondary"><field class="o_secondary" name="room_types_id" readonly="1" groups="stock.group_stock_multi_warehouses"/></div>
+
+                            </div>
+                            <div class="container o_kanban_card_content" t-if="!selection_mode">
+                                <div class="row">
+                                    <div class="col-6 o_kanban_primary_left">
+                                        <button class="btn btn-primary" name="get_action_picking_tree_ready" type="object">
+                                            <!--<span t-if="record.code.raw_value == 'arrival'"><t t-esc="record.count_arrival.value"/> To Process</span>-->
+                                            <t t-out="record.total_room_ids"/>
+                                            0 to Process
+                                        </button>
+                                    </div>
+                                    <div class="col-6 o_kanban_primary_right">
+
+                                    </div>
+                                </div>
+                                <!--<div class="o_kanban_card_lower_content" style="justify-content: end">
+                                     placeholder for bottom content-->
+                                <!--</div>-->
+                            </div>
+                            <div class="o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                <div class="row">
+                                <div class="col-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                    <div role="menuitem" class="o_kanban_card_manage_title">
+                                        <div class="o_kanban_card_manage_title ps-4 pb-1">
+                                            <span class="fw-bolder">Reporting</span>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div t-if="widget.editable" class="o_kanban_card_manage_settings row">
+                                    <div class="col-8" role="menuitem" aria-haspopup="true">
+                                        <ul class="oe_kanban_colorpicker" data-field="color" role="menu"/>
+                                    </div>
+                                    <div role="menuitem" class="col-4">
+                                        <a class="dropdown-item" role="menuitem" type="edit">Configuration</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+</odoo>

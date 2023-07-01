@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <!--<record id="view_hms_dashboard_form" model="ir.ui.view">-->
+        <!--<field name="name">hms.dashboard.form</field>
+        <field name="model">hms.dashboard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="room_types_id"/>
+                        <field name="reservation_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>-->
+    <record id="view_hms_dashboard_form" model="ir.ui.view">
+        <field name="name">Dashboard Form</field>
+        <field name="model">board.board</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Dashboard">
+                <board style="1,2">
+                    <column>
+                        <action
+                            string="IN-OUT"
+                            name="%(action_hms_reports)d"
+                            view_mode="kanban"/>
+                        <action
+                            string="Reservation"
+                            name="%(action_hms_reservation)d"/>
+                        <action
+                            string="Calendar"
+                            name="%(action_hms_reservation)d"
+                            view_mode="calendar"/>
+                        <!--<action
+                            string="Arrival Today"
+                            name="%(action_hms_reservation)d"
+                            view_mode="pivot"/>-->
+                    </column>
+                </board>
+            </form>
+        </field>
+    </record>
+
+
+    <!--<record id="view_hms_dashboard_tree" model="ir.ui.view">
+        <field name="name">hms.dashboard.tree</field>
+        <field name="model">hms.dashboard</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="room_types_id"/>
+                <field name="reservation_id"/>
+            </tree>
+        </field>
+    </record>-->
+
+
+    <!--<record id="view_hms_dashboard_search" model="ir.ui.view">-->
+       <!-- <field name="name">hms.dashboard.search</field>-->
+        <!--<field name="model">hms.dashboard</field>-->
+        <!--<field name="arch" type="xml">-->
+           <!-- <search>-->
+                <!--                <field name="name" filter_domain="['|', ('name','ilike',self), ('ref','ilike', self)]"/>-->
+                <!--                <field name="age"/>-->
+                <!--                <field name="gender"/>-->
+                <!--                <filter name="filter_male" string="Male" domain="[('gender', '=', 'male')]"/>-->
+                <!--                <filter name="filter_female" string="Female" domain="[('gender', '=', 'female')]"/>-->
+                <!--                <filter name="filter_others" string="Others" domain="[('gender', '=', 'others')]"/>-->
+                <!--<separator/>-->
+                <!--                <filter name="filter_childs" string="Childs" domain="[('is_child', '=', True)]"/>-->
+                <!--                <group expand="1" string="Group By">-->
+                <!--                    <filter string="Gender" name="group_by_gender" context="{'group_by' : 'room_status_id'}"/>-->
+                <!--                </group>-->
+                <!--<searchpanel>-->
+                    <!--                    <field name="gender" string="Gender" icon="fa-users" enable_counters="1"/>-->
+                <!--</searchpanel>-->
+            <!--</search>-->
+        <!--</field>
+    </record>-->
+
+    <record id="hms_dashboard" model="ir.actions.act_window">
+        <field name="name">hms.dashboard</field>
+        <field name="res_model">board.board</field>
+        <field name="view_mode">form</field>
+        <field name="usage">menu</field>
+        <field name="view_id" ref="view_hms_dashboard_form"/>
+    </record>
+
+
+</odoo>

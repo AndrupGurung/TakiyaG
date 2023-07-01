@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+Doppler_HMS.access_hms_billing,access_hms_billing,Doppler_HMS.model_hms_billing,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_current_date,access_hms_current_date,Doppler_HMS.model_hms_current_date,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_current_time,access_hms_current_time,Doppler_HMS.model_hms_current_time,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_dashboard,access_hms_dashboard,Doppler_HMS.model_hms_dashboard,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_end_of_day,access_hms_end_of_day,Doppler_HMS.model_hms_end_of_day,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_fo_status,access_hms_fo_status,Doppler_HMS.model_hms_fo_status,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_front_office,access_hms_front_office,Doppler_HMS.model_hms_front_office,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_hk_status,access_hms_hk_status,Doppler_HMS.model_hms_hk_status,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_log_out,access_hms_log_out,Doppler_HMS.model_hms_log_out,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_notifications,access_hms_notifications,Doppler_HMS.model_hms_notifications,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_reports,access_hms_reports,Doppler_HMS.model_hms_reports,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_reservation,access_hms_reservation,Doppler_HMS.model_hms_reservation,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_room_features,access_hms_room_features,Doppler_HMS.model_hms_room_features,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_room_status,access_hms_room_status,Doppler_HMS.model_hms_room_status,base.group_user,1,1,1,1
+Doppler_HMS.access_hms_room_types,access_hms_room_types,Doppler_HMS.model_hms_room_types,base.group_user,1,1,1,1
+

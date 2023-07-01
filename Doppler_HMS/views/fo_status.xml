@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hms_fo_status_form" model="ir.ui.view">
+        <field name="name">hms.fo_status.form</field>
+        <field name="model">hms.fo_status</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="fo_status"/>
+                        <field name="date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hms_fo_status_tree" model="ir.ui.view">
+        <field name="name">hms.fo_status.tree</field>
+        <field name="model">hms.fo_status</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="fo_status"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

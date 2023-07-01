@@ -1,0 +1,4 @@
+/* Replace .your-css-class with the actual CSS class associated with the Kanban view */
+.kanban-css .o_kanban_view {
+    background-color: #yFF0000;
+}

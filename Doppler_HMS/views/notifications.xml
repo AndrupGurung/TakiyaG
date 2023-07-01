@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hms_notifications_form" model="ir.ui.view">
+        <field name="name">hms.notifications.form</field>
+        <field name="model">hms.notifications</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hms_notifications_tree" model="ir.ui.view">
+        <field name="name">hms.notifications.tree</field>
+        <field name="model">hms.notifications</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

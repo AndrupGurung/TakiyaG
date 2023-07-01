@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hms_room_status_kanban" model="ir.ui.view">
+        <field name="name">hms.room_status.kanban</field>
+        <field name="model">hms.room_status</field>
+        <field name="arch" type="xml">
+
+            <kanban class="oe_background_grey o_kanban_small_column"
+                    sample="1">
+                <field name="room_types_id"/>
+                <field name="features_id"/>
+                <field name="fo_status_id"/>
+                <field name="hk_status_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="o_kanban_card">
+                            <div class="o_kanban_card_header_title">
+                                <div class="o_primary">
+                                    <field name="features_id"/>
+                                </div>
+                            </div>
+
+                            <div class="container o_kanban_card_content" t-if="!selection_mode">
+                                <div class="row o_kanban_card_upper_content">
+                                    <div class="col-6 o_kanban_primary_left">
+                                        <button class="btn btn-primary" name="226" type="action">
+                                            <t t-out="record.total_room"/>
+                                            Rooms
+                                        </button>
+                                    </div>
+                                    <div class="col-6 o_kanban_primary_right">
+
+                                    </div>
+                                </div>
+                                <div class="o_kanban_card_lower_content" style="justify-content: end">
+                                    <!-- placeholder for bottom content -->
+                                </div>
+                            </div>
+                            <div class="o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                <div class="o_kanban_card_manage_section">
+                                    <div role="menuitem" class="o_kanban_manage_reports">
+                                        <div class="o_kanban_card_manage_title ps-4 pb-1">
+                                            <span class="fw-bolder">Reporting</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a t-if="widget.editable" role="menuitem" class="dropdown-item" type="edit">
+                                    Configuration
+                                </a>
+                                <ul t-if="widget.editable" class="oe_kanban_colorpicker" data-field="color"
+                                    role="menu"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_hms_room_status_calendar" model="ir.ui.view">
+        <field name="name">hms.room_status.calendar</field>
+        <field name="model">hms.room_status</field>
+        <field name="arch" type="xml">
+            <calendar string="Room Details Calendar" date_start="date" color="room_no">
+                <field name="room_no"/>
+                <field name="room_types_id"/>
+                <field name="features_id"/>
+                <field name="fo_status_id"/>
+                <field name="hk_status_id"/>
+            </calendar>
+        </field>
+    </record>
+
+
+    <record id="view_hms_room_status_form" model="ir.ui.view">
+        <field name="name">hms.room_status.form</field>
+        <field name="model">hms.room_status</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="room_no"/>
+                        <field name="room_types_id" options="{'no_open':True, 'no_create':False}"/>
+                        <field name="features_id"/>
+                        <field name="fo_status_id"/>
+                        <field name="hk_status_id"/>
+                        <field name="rate"/>
+                        <field name="date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hms_room_status_tree" model="ir.ui.view">
+        <field name="name">hms.room_status.tree</field>
+        <field name="model">hms.room_status</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="room_no"/>
+                <field name="room_types_id"/>
+                <field name="features_id"/>
+                <field name="fo_status_id"/>
+                <field name="hk_status_id"/>
+                <field name="rate"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_hms_room_status_search" model="ir.ui.view">
+        <field name="name">hms.room_status.search</field>
+        <field name="model">hms.room_status</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="room_no" filter_domain="['|', ('name','ilike',self), ('ref','ilike', self)]"/>
+                <field name="room_types_id"/>
+                <separator/>
+                <group expand="1" string="Group By">
+                    <filter string="Date" name="group_by_date" context="{'group_by' : 'date'}"/>
+                </group>
+                <searchpanel>
+                    <field name="room_types_id" string="Room Type" icon="fa-users" enable_counters="1"/>
+                    <field name="fo_status_id" string="FO Status" icon="fa-building" enable_counters="1"/>
+                    <field name="hk_status_id" string="HK Status" icon="fa-building" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+
+</odoo>

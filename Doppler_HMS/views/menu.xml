@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Actions-->
+    <record id="action_hms_dashboard" model="ir.actions.act_window">
+        <field name="name">HMS Dashboard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.dashboard</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_hms_reservation" model="ir.actions.act_window">
+        <field name="name">Reservation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.reservation</field>
+        <field name="view_mode">tree,kanban,pivot,form,calendar</field>
+    </record>
+
+    <record id="action_hms_front_office" model="ir.actions.act_window">
+        <field name="name">Front Office</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.front_office</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_hms_room_status" model="ir.actions.act_window">
+        <field name="name">Room Status</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.room_status</field>
+        <field name="view_mode">tree,form,kanban,calendar</field>
+    </record>
+
+    <record id="action_hms_billing" model="ir.actions.act_window">
+        <field name="name">Billing</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.billing</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_hms_reports" model="ir.actions.act_window">
+        <field name="name">Reports</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.reports</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <record id="action_hms_end_of_day" model="ir.actions.act_window">
+        <field name="name">End of Day</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.end_of_day</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_hms_current_date" model="ir.actions.act_window">
+        <field name="name">Current Date</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.current_date</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_hms_current_time" model="ir.actions.act_window">
+        <field name="name">Current Time</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.current_time</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_hms_notifications" model="ir.actions.act_window">
+        <field name="name">Notifications</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.notifications</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_hms_log_out" model="ir.actions.act_window">
+        <field name="name">Log Out</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.log_out</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!--    Sub Menu Items of Room Status Start-->
+    <record id="room_types" model="ir.actions.act_window">
+        <field name="name">Room Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.room_types</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_noContent_smiling_face">
+                Here are Your Details on Room Types
+            </p>
+        </field>
+    </record>
+
+    <record id="room_features" model="ir.actions.act_window">
+        <field name="name">Room Features</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.room_features</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_noContent_smiling_face">
+                Here are Your Details on Room Features
+            </p>
+        </field>
+    </record>
+
+    <record id="fo_status" model="ir.actions.act_window">
+        <field name="name">FO Status</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.fo_status</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_noContent_smiling_face">
+                Here are Your Details on FO Status
+            </p>
+        </field>
+    </record>
+
+    <record id="hk_status" model="ir.actions.act_window">
+        <field name="name">HK Status</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.hk_status</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_noContent_smiling_face">
+                Here are Your Details on HK Status
+            </p>
+        </field>
+    </record>
+    <!--    Sub Menu Items of Room Status Ends-->
+
+
+    <!--    Header Menus-->
+    <menuitem id="menu_hms_root"
+              name="Doppler_HMS"
+              sequence="10"/>
+
+    <menuitem id="menu_hms_dashboard"
+              name="Dashboard"
+              parent="menu_hms_root"
+              action="hms_dashboard"
+              sequence="10"/>
+
+    <menuitem id="menu_hms_reservation"
+              name="Reservation"
+              parent="menu_hms_root"
+              action="action_hms_reservation"
+              sequence="10"/>
+
+    <menuitem id="menu_hms_front_office"
+              name="Front Office"
+              parent="menu_hms_root"
+              action="action_hms_front_office"
+              sequence="10"/>
+
+    <menuitem id="menu_hms_room_status"
+              name="Room Status"
+              parent="menu_hms_root"
+              sequence="10"/>
+
+    <menuitem id="menu_hms_billing"
+              name="Billing"
+              parent="menu_hms_root"
+              action="action_hms_billing"
+              sequence="10"/>
+
+    <menuitem id="menu_hms_reports"
+              name="Reports"
+              parent="menu_hms_root"
+              action="action_hms_reports"
+              sequence="10"/>
+
+    <menuitem id="menu_hms_end_of_day"
+              name="End of Day"
+              parent="menu_hms_root"
+              action="action_hms_end_of_day"
+              sequence="10"/>
+
+    <menuitem id="menu_hms_current_date"
+              name="Current Date"
+              parent="menu_hms_root"
+              action="action_hms_current_date"
+              sequence="10"/>
+
+    <menuitem id="menu_hms_current_time"
+              name="Current Time"
+              parent="menu_hms_root"
+              action="action_hms_current_time"
+              sequence="10"/>
+
+    <menuitem id="menu_hms_notifications"
+              name="Notifications"
+              parent="menu_hms_root"
+              action="action_hms_notifications"
+              sequence="10"/>
+
+    <menuitem id="menu_hms_log_out"
+              name="Log Out"
+              parent="menu_hms_root"
+              action="action_hms_log_out"
+              sequence="10"/>
+
+
+    <!--    Sub_menus-->
+
+    <menuitem id="menu_hms_room_status_details"
+              name="Room Status Details"
+              parent="menu_hms_room_status"
+              action="action_hms_room_status"
+              sequence="1"/>
+
+    <menuitem
+            id="menu_hms_room_configurations"
+            name="Room Configurations"
+            parent="Doppler_HMS.menu_hms_room_status"
+            sequence="2"/>
+
+    <menuitem id="menu_hotel_room_types"
+              name="Room Types"
+              parent="menu_hms_room_configurations"
+              action="room_types"
+              sequence="3"/>
+
+    <menuitem id="menu_hotel_room_features"
+              name="Room Features"
+              parent="menu_hms_room_configurations"
+              action="room_features"
+              sequence="3"/>
+
+    <menuitem id="menu_hotel_fo_status"
+              name="FO Status"
+              parent="menu_hms_room_configurations"
+              action="fo_status"
+              sequence="4"/>
+
+    <menuitem id="menu_hotel_hk_status"
+              name="HK Status"
+              parent="menu_hms_room_configurations"
+              action="hk_status"
+              sequence="5"/>
+
+</odoo>
